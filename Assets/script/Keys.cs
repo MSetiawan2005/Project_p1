@@ -10,6 +10,7 @@ public class Keys : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class Keys : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            //gameObject.transform.parent = followTrg; //tet
+
             if (!isFollow)
             {
                 PlayerMove Theplayer = FindObjectOfType<PlayerMove>();
@@ -37,6 +40,8 @@ public class Keys : MonoBehaviour
 
                 isFollow = true;
                 Theplayer.followKey = this;
+
+               
             }
         }
     }

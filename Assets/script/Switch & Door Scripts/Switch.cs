@@ -11,23 +11,6 @@ public class Switch : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 	}
 
-	void OnTriggerEnter2D(Collider2D target){
-
-		
-		
-			animator.SetInteger("AnimState", 1); //animasi switch ketekan
-			down = true; //set boolean true
-
-			foreach (DoorTrigger trigger in doorTriggers)
-			{ //cari semua doortrigger yg didaftarin pada array
-				if (trigger != null) //kalo array tidak kosong
-					trigger.Toggle(true); //jalankan fungsi toggle pada doortrigger
-			}
-		
-		
-	}
-
-
     void OnTriggerStay2D(Collider2D target)
     {
 		animator.SetInteger("AnimState", 1); //animasi switch ketekan

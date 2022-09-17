@@ -9,7 +9,7 @@ public class Grab : MonoBehaviour
     public Transform boxHolder;
     public float raydist;
     public GameObject ktk;
-
+    
 
 
     // Update is called once per frame
@@ -36,4 +36,6 @@ public class Grab : MonoBehaviour
             }
         }
     }
+
+
 }

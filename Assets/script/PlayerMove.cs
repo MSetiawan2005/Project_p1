@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         updateAnimation();
 
         Vector3 characterScale = transform.localScale;
-        if(Input.GetAxis("Horizontal") < 0)
+        if(Input.GetAxis("Horizontal") < 0 )
         {
             characterScale.x = -1f;
         }
@@ -59,27 +60,31 @@ public class PlayerMove : MonoBehaviour
     {
         moveState state;
 
-        if (dirX < 0f)
+        if (dirX < 0f && !(rb.velocity.y > 1f) && !(rb.velocity.y < -1f))
         {
             state = moveState.run;
         }
-        else if (dirX > 0f)
+        else if (dirX > 0f && !(rb.velocity.y > 1f) && !(rb.velocity.y < -1f))
         {
             state = moveState.run;
         }
+
+        else if (rb.velocity.y > 0.1f )
+        {
+            state = moveState.jump;
+        }
+        else if(rb.velocity.y < - 0.1f )
+        {
+            state = moveState.fall;
+        }
+
         else
         {
             state = moveState.idel;
         }
 
-        if(rb.velocity.y > .1f)
-        {
-            state = moveState.jump;
-        }
-        else if(rb.velocity.y < -.1f)
-        {
-            state = moveState.fall;
-        }
+
+
 
         anim.SetInteger("state", (int)state);
 
