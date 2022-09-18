@@ -219,6 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpf: 17
+  jumpGround:
+    serializedVersion: 2
+    m_Bits: 64
   keyFollowPoint: {fileID: 6333730903697456823}
   followKey: {fileID: 0}
 --- !u!1 &6333730904374845155

@@ -112,5 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48702fc2c0f84242857c3530d0097b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followsped: 100
+  followsped: 1000
   followTrg: {fileID: 0}

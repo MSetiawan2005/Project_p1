@@ -7,7 +7,9 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 7;
     [SerializeField] private float jumpf = 14;
+    [SerializeField] private LayerMask jumpGround;
 
+    private CapsuleCollider2D colld;
     private Rigidbody2D rb;
 
     public Transform keyFollowPoint;
@@ -22,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        colld = GetComponent<CapsuleCollider2D>();
         
     }
 
@@ -32,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && Mathf.Abs(rb.velocity.y) < 0.001f)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && Mathf.Abs(rb.velocity.y) < 0.001f && IsGrounded())
             
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpf);
@@ -69,11 +72,12 @@ public class PlayerMove : MonoBehaviour
             state = moveState.run;
         }
 
-        else if (rb.velocity.y > 0.1f )
+        else if (rb.velocity.y > 0.1f && !IsGrounded())
         {
             state = moveState.jump;
         }
-        else if(rb.velocity.y < - 0.1f )
+
+        else if (rb.velocity.y < - 0.1f && !IsGrounded())
         {
             state = moveState.fall;
         }
@@ -88,6 +92,12 @@ public class PlayerMove : MonoBehaviour
 
         anim.SetInteger("state", (int)state);
 
+    }
+
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(colld.bounds.center, colld.bounds.size, 0f, Vector2.down, .1f, jumpGround);
     }
 
 }

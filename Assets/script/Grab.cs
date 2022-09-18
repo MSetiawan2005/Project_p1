@@ -10,7 +10,7 @@ public class Grab : MonoBehaviour
     public float raydist;
     public GameObject ktk;
     
-
+    
 
     // Update is called once per frame
     void Update()
