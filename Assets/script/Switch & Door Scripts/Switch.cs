@@ -30,6 +30,7 @@ public class Switch : MonoBehaviour {
 			if (sticky && down) //kalau switch sudah ditekan DAN dia sticky
 				return; //fungsi tidak dijalankan, alias switch tidak beranimasi naik lagi
 
+
 			//dibawah ini artinya switch tidak sticky, alias beranimasi naik lagi
 			animator.SetInteger("AnimState", 2);
 			down = false;
@@ -42,6 +43,8 @@ public class Switch : MonoBehaviour {
 		
 		
 	}
+
+
 
 	void OnDrawGizmos(){ //menggambar garis penanda doortrigger yg bersangkutan
 		Gizmos.color = sticky ? Color.blue : Color.green; //kalo biru artinya switch tsb sticky, kalo hijau tidak sticky
