@@ -13,15 +13,18 @@ public class Door : MonoBehaviour
 	}
 
 	void DisableCollider2D(){
-		GetComponent<Collider2D>().enabled = false; //disable collider agar pintu terbuka bisa dilewati
+
+		
 	}
 
 	void EnableCollider2D(){
-		GetComponent<Collider2D>().enabled = true; //enable collider agar pintu tertutup tidak bisa dilewati
+
+		
 	}
 
 	public void Open(){
 		animator.SetInteger ("AnimState", 1); //animasi pintu terbuka
+		GetComponent<BoxCollider2D>().enabled = false; //disable collider agar pintu terbuka bisa dilewati
 	}
 
 	public void Close(){
@@ -31,5 +34,6 @@ public class Door : MonoBehaviour
 	private IEnumerator CloseNow(){
 		yield return new WaitForSeconds(closeDelay); //fungsi delay
 		animator.SetInteger ("AnimState", 2); //animasi pintu tertutup
+		GetComponent<BoxCollider2D>().enabled = true; //enable collider agar pintu tertutup tidak bisa dilewati
 	}
 }
