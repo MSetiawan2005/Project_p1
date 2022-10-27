@@ -6,6 +6,10 @@ using UnityEngine;
 public class CharachterProperties : ScriptableObject
 {
     public int level;
-
+    public int walkLeft;
+    public int walkRight;
+    public int interact;
+    public int jump;
+    public int pause;
 
 }

@@ -14,13 +14,25 @@ public class SceneChanger : MonoBehaviour
             StartCoroutine(LoadScene(sceneIndex));
     }
 
+    public void NextLevel(int sceneIndex)
+    {
+        StartCoroutine(LoadScene(sceneIndex + 1));
+    }
+
     IEnumerator LoadScene(int sceneIndex)
     {
         AsyncOperation loadedScene = SceneManager.LoadSceneAsync(sceneIndex);
+        if(charachterProperties.level < sceneIndex)
+        {
+            charachterProperties.level = sceneIndex;
+            SaveSystemLoader.SaveData(charachterProperties);
+        }
+
         loadingScreen.gameObject.SetActive(true);
         //StartCoroutine(loadingScreen.OpenLoadingScreen());
         while (!loadedScene.isDone)
         {
+            loadingScreen.imageFilled.fillAmount += (Time.deltaTime / 5);
             yield return null;
             loadingScreen.gameObject.SetActive(false);
             //StartCoroutine(loadingScreen.CloseLoadingScreen());

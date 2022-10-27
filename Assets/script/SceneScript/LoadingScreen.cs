@@ -6,11 +6,15 @@ public class LoadingScreen : MonoBehaviour
 {
     public Sprite[] loadingscreens;
     [SerializeField] Image image;
+    public Image imageFilled;
     
     private void Start()
     {
+
         image = GetComponent<Image>();
     }
+
+
 
     //public IEnumerator OpenLoadingScreen()
     //{

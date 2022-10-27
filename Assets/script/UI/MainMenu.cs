@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject levelSelectPane;
     [SerializeField] private GameObject controlPane;
     [SerializeField] private GameObject optionPane;
+    [SerializeField] private CharachterProperties properties;
+    [SerializeField] private int buttonToChange;
 
 
 
@@ -27,6 +29,35 @@ public class MainMenu : MonoBehaviour
         controlPane.SetActive(false);
         optionPane.SetActive(false);
 
+    }
+
+
+    public void ChangeButton(int buttonToChange)
+    {
+        // pop up
+        this.buttonToChange = buttonToChange;
+    }
+
+    public void ChangeOnWalkLeftButton(int newButton)
+    {
+        if(buttonToChange == 0)
+        {
+            properties.walkLeft = newButton;
+        }else if(buttonToChange == 1)
+        {
+            properties.walkRight = newButton;
+        }else if(buttonToChange == 2)
+        {
+            properties.jump = newButton;
+        }else if (buttonToChange == 3)
+        {
+            properties.interact = newButton;
+        }else if(buttonToChange == 4)
+        {
+            properties.pause = newButton;
+        }
+
+        SaveSystemLoader.SaveData(properties);
     }
 
     public void SettingsOnClick()

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 23bce4aa61c9a3b4d92a3f7c5207e2c7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Timepiece
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b58dc68cb997ecb499b0bc0db95a64f5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
