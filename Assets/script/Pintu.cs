@@ -37,7 +37,7 @@ public class Pintu : MonoBehaviour
 
         if(doorOpen && Vector3.Distance(thePlayer.transform.position, transform.position) < 1f && Input.GetAxis("Vertical") > 0.1f) 
         {
-            SceneChanger scene = GameObject.FindGameObjectWithTag("Main Camera").GetComponent<SceneChanger>();
+            SceneChanger scene = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SceneChanger>();
             scene.NextLevel(SceneManager.GetActiveScene().buildIndex);
         }
     }

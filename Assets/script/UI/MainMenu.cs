@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject levelSelectPane;
     [SerializeField] private GameObject controlPane;
     [SerializeField] private GameObject optionPane;
+    [SerializeField] private GameObject creditPane;
     [SerializeField] private CharachterProperties properties;
     [SerializeField] private int buttonToChange;
 
@@ -23,11 +24,13 @@ public class MainMenu : MonoBehaviour
         levelSelectPane = GameObject.Find("LevelSelect");
         controlPane = GameObject.Find("Control");
         optionPane = GameObject.Find("Option");
+        creditPane = GameObject.Find("Credit");
 
  //       mainMenuPane.SetActive(false);
         levelSelectPane.SetActive(false);
         controlPane.SetActive(false);
         optionPane.SetActive(false);
+        creditPane.SetActive(false);
 
     }
 
@@ -65,7 +68,9 @@ public class MainMenu : MonoBehaviour
         mainMenuPane.SetActive(false);
         levelSelectPane.SetActive(false);
         controlPane.SetActive(false);
+        creditPane.SetActive(false);
         optionPane.SetActive(true);
+        
 
     }
 
@@ -75,6 +80,8 @@ public class MainMenu : MonoBehaviour
         levelSelectPane.SetActive(false);
         controlPane.SetActive(false);
         optionPane.SetActive(false);
+        creditPane.SetActive(false);
+
     }
 
     public void StartOnClick()
@@ -82,6 +89,8 @@ public class MainMenu : MonoBehaviour
         mainMenuPane.SetActive(false);
         controlPane.SetActive(false);
         optionPane.SetActive(false);
+        creditPane.SetActive(false);
+
         levelSelectPane.SetActive(true);
     }
 
@@ -91,13 +100,25 @@ public class MainMenu : MonoBehaviour
         optionPane.SetActive(false);
         levelSelectPane.SetActive(false);
         controlPane.SetActive(true);
+        creditPane.SetActive(false);
+
     }
 
+    public void Credit()
+    {
+        mainMenuPane.SetActive(false);
+        optionPane.SetActive(false);
+        levelSelectPane.SetActive(false);
+        controlPane.SetActive(false);
+        creditPane.SetActive(true);
+    }
     public void ExitOnClick()
     {
         if (mainMenuPane != null) mainMenuPane.SetActive(false);
         Application.Quit();
     }
+
+
 
    // public delegate void DeselectedCallback();
 }
