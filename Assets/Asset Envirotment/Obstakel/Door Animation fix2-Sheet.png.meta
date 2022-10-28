@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: 35d95341bfd338d43b50e90efd7bb4b7
+guid: 30df11469921f214fbfebf9399f0b99f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3228306806941049281
-    second: Tak berjudul42_0
+      213: -4028263699667017871
+    second: Door Animation fix2-Sheet_0
   - first:
-      213: -6519267550460917935
-    second: Tak berjudul42_1
+      213: 7377946515912662387
+    second: Door Animation fix2-Sheet_1
   - first:
-      213: -4798296832972334310
-    second: Tak berjudul42_2
+      213: -3670232089191341996
+    second: Door Animation fix2-Sheet_2
   - first:
-      213: 7002245527723652742
-    second: Tak berjudul42_3
+      213: 4196205296415033323
+    second: Door Animation fix2-Sheet_3
   - first:
-      213: -56991451952573382
-    second: Tak berjudul42_4
+      213: 7010711853554354421
+    second: Door Animation fix2-Sheet_4
   - first:
-      213: 8040280451834104826
-    second: Tak berjudul42_5
+      213: 8315806616514660272
+    second: Door Animation fix2-Sheet_5
   - first:
-      213: -2007375737464621927
-    second: Tak berjudul42_6
+      213: -8235216276165214485
+    second: Door Animation fix2-Sheet_6
   - first:
-      213: 5325052079276388878
-    second: Tak berjudul42_7
+      213: -9184679711372052164
+    second: Door Animation fix2-Sheet_7
   - first:
-      213: 1847853590065545341
-    second: Tak berjudul42_8
+      213: -4546007013908963076
+    second: Door Animation fix2-Sheet_8
   - first:
-      213: 7246842554814230362
-    second: Tak berjudul42_9
+      213: -5964255594323113199
+    second: Door Animation fix2-Sheet_9
   - first:
-      213: -6774867222263346542
-    second: Tak berjudul42_10
-  - first:
-      213: -1523779376371161055
-    second: Tak berjudul42_11
+      213: 2148708882707428392
+    second: Door Animation fix2-Sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -68,7 +65,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -82,7 +79,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tak berjudul42_0
+      name: Door Animation fix2-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 640
-        width: 128
-        height: 128
+        x: 32
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e9d4a3010c233d0800000000000000
-      internalID: -3228306806941049281
+      spriteID: 17f1fbff18bb818c0800000000000000
+      internalID: -4028263699667017871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_1
+      name: Door Animation fix2-Sheet_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 640
-        width: 128
-        height: 128
+        x: 160
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 157cb0314b8e685a0800000000000000
-      internalID: -6519267550460917935
+      spriteID: 37d1ec4244bb36660800000000000000
+      internalID: 7377946515912662387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_2
+      name: Door Animation fix2-Sheet_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 640
-        width: 128
-        height: 128
+        x: 288
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b5dcfe376096db0800000000000000
-      internalID: -4798296832972334310
+      spriteID: 450a2805c57b01dc0800000000000000
+      internalID: -3670232089191341996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_3
+      name: Door Animation fix2-Sheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 512
-        width: 128
-        height: 128
+        x: 416
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 686390e3539fc2160800000000000000
-      internalID: 7002245527723652742
+      spriteID: be74e611c7aeb3a30800000000000000
+      internalID: 4196205296415033323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_4
+      name: Door Animation fix2-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 512
-        width: 128
-        height: 128
+        x: 544
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34122f8396853ff0800000000000000
-      internalID: -56991451952573382
+      spriteID: 5f84ab5594d0b4160800000000000000
+      internalID: 7010711853554354421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_5
+      name: Door Animation fix2-Sheet_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
-        width: 128
-        height: 128
+        x: 672
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbc612c870d49f60800000000000000
-      internalID: 8040280451834104826
+      spriteID: 0b703360f0ea76370800000000000000
+      internalID: 8315806616514660272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_6
+      name: Door Animation fix2-Sheet_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 128
-        height: 128
+        x: 800
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 994feadf66e5424e0800000000000000
-      internalID: -2007375737464621927
+      spriteID: bee38aacd62a6bd80800000000000000
+      internalID: -8235216276165214485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_7
+      name: Door Animation fix2-Sheet_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
+        x: 928
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0279bb17a266e940800000000000000
-      internalID: 5325052079276388878
+      spriteID: c397eeb0776798080800000000000000
+      internalID: -9184679711372052164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_8
+      name: Door Animation fix2-Sheet_8
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
+        x: 1056
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7089c0cc05e4a910800000000000000
-      internalID: 1847853590065545341
+      spriteID: cf0a585e4b659e0c0800000000000000
+      internalID: -4546007013908963076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_9
+      name: Door Animation fix2-Sheet_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
+        x: 1184
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5fe2ee78e4f19460800000000000000
-      internalID: 7246842554814230362
+      spriteID: 11b0cbe0325ba3da0800000000000000
+      internalID: -5964255594323113199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tak berjudul42_10
+      name: Door Animation fix2-Sheet_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 1312
+        y: 0
+        width: 65
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,29 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a4e88f726daf1a0800000000000000
-      internalID: -6774867222263346542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tak berjudul42_11
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 128a4530bb27adae0800000000000000
-      internalID: -1523779376371161055
+      spriteID: 824b08f285fb1dd10800000000000000
+      internalID: 2148708882707428392
       vertices: []
       indices: 
       edges: []
