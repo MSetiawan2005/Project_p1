@@ -8,6 +8,7 @@ TagManager:
   - key
   - player
   - target
+  - Trap
   layers:
   - Default
   - TransparentFX
