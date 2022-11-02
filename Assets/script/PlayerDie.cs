@@ -27,16 +27,11 @@ public class PlayerDie : MonoBehaviour
         Instantiate(effect, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
-        Restart();
+       
     }
 
 
-    public void Restart()
-    { 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        
-    }
+  
+
+
 }
