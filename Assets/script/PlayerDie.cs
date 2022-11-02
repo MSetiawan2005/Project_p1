@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDie : MonoBehaviour
 {
@@ -25,5 +26,17 @@ public class PlayerDie : MonoBehaviour
         Instantiate(blood, transform.position, Quaternion.identity);
         Instantiate(effect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
+        Restart();
+    }
+
+
+    public void Restart()
+    { 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
     }
 }

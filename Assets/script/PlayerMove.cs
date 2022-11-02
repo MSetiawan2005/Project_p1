@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && Mathf.Abs(rb.velocity.y) < 0.001f && IsGrounded())
+        if (Input.GetButton("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f && IsGrounded())
             
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpf);

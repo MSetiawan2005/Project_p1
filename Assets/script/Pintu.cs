@@ -35,7 +35,7 @@ public class Pintu : MonoBehaviour
         }
 
 
-        if(doorOpen && Vector3.Distance(thePlayer.transform.position, transform.position) < 1f && Input.GetAxis("Vertical") > 0.1f) 
+        if(doorOpen && Vector3.Distance(thePlayer.transform.position, transform.position) < 1f && Input.GetKey(KeyCode.W)) 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
