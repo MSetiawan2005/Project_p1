@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float jumpf = 14;
     [SerializeField] private LayerMask jumpGround;
 
-    private CapsuleCollider2D colld;
+    private CircleCollider2D colld;
     private Rigidbody2D rb;
 
     public Transform keyFollowPoint;
@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        colld = GetComponent<CapsuleCollider2D>();
+        colld = GetComponent<CircleCollider2D>();
         
     }
 

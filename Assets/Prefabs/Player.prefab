@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4542422219742842319
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4542422221123198097
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 7560420357997897788}
   - component: {fileID: 7560420357997897791}
   - component: {fileID: 7560420357997897794}
+  - component: {fileID: 682440948873482594}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -529,8 +530,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10978699, y: 0.007835865}
-  m_Size: {x: 1.3306732, y: 2.8930197}
+  m_Offset: {x: -0.10978699, y: 0.02803421}
+  m_Size: {x: 1.3306732, y: 2.9172592}
   m_Direction: 0
 --- !u!114 &7560420357997897791
 MonoBehaviour:
@@ -565,6 +566,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 4951767421888984772, guid: 303f3d633d897b344bfd63956ba2718b, type: 3}
   blood: {fileID: 3659603484641980051, guid: cd1e6cb30ab497e49af10c1240ffd2c2, type: 3}
+--- !u!58 &682440948873482594
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560420357997897787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: c2c004b85f93964479d58aef8ed12c34, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11056626, y: -0.8039392}
+  serializedVersion: 2
+  m_Radius: 0.6522969
 --- !u!1 &7560420358170674121
 GameObject:
   m_ObjectHideFlags: 0
