@@ -31,6 +31,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.Find("Canvas").GetComponent<OnMouseEventMenu>().Pause();
+            Time.timeScale = (Time.timeScale + 1) % 2;
+        }
+
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 

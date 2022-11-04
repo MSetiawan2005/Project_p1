@@ -10,7 +10,7 @@ public class Pintu : MonoBehaviour
     public SpriteRenderer sr;
     public Sprite doorOpenSprt;
 
-    public bool doorOpen, waiting;
+    public bool doorOpen, waiting, openingDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,9 @@ public class Pintu : MonoBehaviour
         }
 
 
-        if(doorOpen && Vector3.Distance(thePlayer.transform.position, transform.position) < 1f && Input.GetKey(KeyCode.W)) 
+        if(doorOpen && Vector3.Distance(thePlayer.transform.position, transform.position) < 1f && Input.GetKey(KeyCode.W) && !openingDoor) 
         {
+            openingDoor = true;
             SceneChanger scene = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SceneChanger>();
             scene.NextLevel(SceneManager.GetActiveScene().buildIndex);
         }

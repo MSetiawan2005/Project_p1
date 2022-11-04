@@ -11,11 +11,25 @@ public class DialogProperties : MonoBehaviour
 
     private void Start()
     {
-/*        image = GameObject.Find("Dialog").GetComponent<Image>();*/
+        CharachterProperties c = Resources.Load<CharachterProperties>("CharachterData");
+
+        if (this.name == "TutorialOne" && c.hasPassedTutorialOne)
+        {
+            Destroy(this.gameObject);
+        }
+        if (this.name == "TutorialTwo" && c.hasPassedTutorialTwo)
+        {
+            Destroy(this.gameObject);
+        }
+        if (this.name == "TutorialThree" && c.hasPassedTutorialThree)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public bool DoSentenceAction(int i)
     {
+
         if (sentences[i].isDoingAction)
         {
             switch (sentences[i].action)
@@ -32,6 +46,19 @@ public class DialogProperties : MonoBehaviour
                         // Interval
                     }
                     break;
+                case SentenceAction.PassOne:
+                    Resources.Load<CharachterProperties>("CharachterData").hasPassedTutorialOne = true;
+                    SaveSystemLoader.SaveData(Resources.Load<CharachterProperties>("CharachterData"));
+                    break;
+                case SentenceAction.PassTwo:
+                    Resources.Load<CharachterProperties>("CharachterData").hasPassedTutorialTwo = true;
+                    SaveSystemLoader.SaveData(Resources.Load<CharachterProperties>("CharachterData"));
+                    break;
+                case SentenceAction.PassThree:
+                    Resources.Load<CharachterProperties>("CharachterData").hasPassedTutorialThree = true;
+                    SaveSystemLoader.SaveData(Resources.Load<CharachterProperties>("CharachterData"));
+                    break;
+
             }
         }
         return false;

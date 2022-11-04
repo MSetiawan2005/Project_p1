@@ -32,6 +32,8 @@ public class MainMenu : MonoBehaviour
         optionPane.SetActive(false);
         creditPane.SetActive(false);
 
+        Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length-1].width, Screen.resolutions[Screen.resolutions.Length - 1].height, true);
+
     }
 
 

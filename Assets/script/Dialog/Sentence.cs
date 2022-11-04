@@ -6,6 +6,7 @@ using UnityEngine;
 public class Sentence : ScriptableObject
 {
     public string characterName;
+    [TextArea]
     public string sentence;
     public bool isDoingAction;
     public SentenceAction action;
@@ -16,5 +17,9 @@ public enum SentenceAction
 {
     PopUpImage,
     PopUpMultipleImage,
-    CloseDialog
+    CloseDialog,
+    PassOne,
+    PassTwo,
+    PassThree,
+
 }

@@ -1,55 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class OnMouseEventMenu : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private Color32 textNormalColor;
-    [SerializeField] private Color32 textSelectedColor;
-    private bool isSelected;
+    public GameObject pausePane { get; private set; }
+    public GameObject settingPane { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        pausePane = GameObject.Find("PausePane");
+        settingPane = GameObject.Find("SettingPane");
+
+        Button resume = GameObject.Find("Resume").GetComponent<Button>();
+        if (resume == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with Resume ");
+        }
+
+        Button retry = GameObject.Find("Retry").GetComponent<Button>();
+        if (retry == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with Retry ");
+        }
+
+        Button setting = GameObject.Find("Setting").GetComponent<Button>();
+        if (setting == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with Setting ");
+        }
+
+        Button mainMenu = GameObject.Find("MainMenu").GetComponent<Button>();
+        if (mainMenu == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with MainMenu ");
+        }
+
+        Button backSetting = GameObject.Find("BackSettingPane").GetComponent<Button>();
+        if (backSetting == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with BackSettingPane ");
+        }
+
+        Button restart = GameObject.Find("Restart").GetComponent<Button>();
+        if (restart == null)
+        {
+            Debug.Log("Please add Button Component to UI Object named with Back ");
+        }
+
+
+        resume.GetComponent<Button>().onClick.AddListener(ResumeOnClick);
+        retry.GetComponent<Button>().onClick.AddListener(RetryOnClick);
+        setting.GetComponent<Button>().onClick.AddListener(SettingOnClick);
+        mainMenu.GetComponent<Button>().onClick.AddListener(MainMenuOnClick);
+        backSetting.GetComponent<Button>().onClick.AddListener(BackOnClick);
+        restart.GetComponent<Button>().onClick.AddListener(RestartOnClick);
+
+        pausePane.SetActive(false);
+        settingPane.SetActive(false);
     }
 
-    private void OnMouseOver()
+    public void Pause()
     {
-
-
-        Debug.Log("Hover");
-    }
-
-    private void OnMouseExit()
-    {
-        if (isSelected)
-            return;
-        if (text != null) text.color = textNormalColor;
-        Debug.Log("Exit");
+        pausePane.SetActive(!pausePane.active);
 
     }
 
-    private void OnMouseDown()
+    public void ResumeOnClick()
     {
-        if (text != null)
-            return;
-        
-        text.color = textSelectedColor;
-        Debug.Log("Clicked");
-
+        pausePane.SetActive(false);
+        Time.timeScale = (Time.timeScale + 1) % 2;
     }
 
-    public void Deselected()
+    public void RetryOnClick()
     {
-        if (text != null)
-            return;
-
-        Debug.Log("Callback Success");
-        text.color = textNormalColor;
-        isSelected = false;
-
+        Time.timeScale = (Time.timeScale + 1) % 2;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void RestartOnClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SettingOnClick()
+    {
+        settingPane.SetActive(true);
+    }
+    public void MainMenuOnClick()
+    {
+        Time.timeScale = (Time.timeScale + 1) % 2;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SceneChanger>().BackToMainMenu();
+    }
+
+    public void BackOnClick()
+    {
+        settingPane.SetActive(false);
+    }
+
+
 }
