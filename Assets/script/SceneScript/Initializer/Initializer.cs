@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class Initializer : MonoBehaviour
 {
     public GameObject LoadingPrefab;
+    [SerializeField] private Toggle audioMaster;
+    [SerializeField] private Toggle sfx;
+    [SerializeField] private Toggle bgm;
+    [SerializeField] private Toggle fullscreen;
+    [SerializeField] private CharachterProperties properties;
+    [SerializeField] private SoundController audioController;
+
     private void Awake()
     {
         LoadingPrefab = Resources.Load("Loading") as GameObject;
@@ -13,9 +20,14 @@ public class Initializer : MonoBehaviour
         GameObject loading = GameObject.Instantiate(LoadingPrefab, canvas.transform);
         loading.name = "Loading";
         loading.SetActive(true);
-
+        audioController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SoundController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+        properties = Resources.Load<CharachterProperties>("CharachterData");
+        audioMaster.isOn = properties.audioMaster;
+        bgm.isOn = properties.bgm;
+        sfx.isOn = properties.sfx;
+        fullscreen.isOn = properties.isFullscreen;
 
 
         if (GetComponent<SceneChanger>() == null)
@@ -29,6 +41,39 @@ public class Initializer : MonoBehaviour
             player.AddComponent<DialogLoader>();
         }
 
+
+    }
+
+    public void OnAudioMaster()
+    {
+        properties.audioMaster = audioMaster.isOn;
+        sfx.interactable = audioMaster.isOn;
+        bgm.interactable = audioMaster.isOn;
+        if (!audioMaster.isOn) audioController.MasterMuteOption(!audioMaster.isOn);
+        else
+        {
+            audioController.SFXMuteOption(!sfx.isOn);
+            audioController.BGMMuteOption(!bgm.isOn);
+
+        }
+
+    }
+
+    public void OnSFX()
+    {
+        properties.sfx = sfx.isOn;
+        audioController.SFXMuteOption(!sfx.isOn);
+    }
+
+    public void OnBGM()
+    {
+        properties.bgm = bgm.isOn;
+        audioController.BGMMuteOption(!bgm.isOn);
+    }
+
+    public void OnFullscreen()
+    {
+        properties.isFullscreen = fullscreen.isOn;
     }
 
 

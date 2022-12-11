@@ -11,9 +11,13 @@ public class CharachterProperties : ScriptableObject
     public int interact;
     public int jump;
     public int pause;
+    public bool audioMaster;
+    public bool bgm;
+    public bool sfx;
+    public bool isFullscreen;
     public bool hasPassedTutorialOne;
     public bool hasPassedTutorialTwo;
     public bool hasPassedTutorialThree;
-
+    public bool hasShowTimeLine;
 
 }

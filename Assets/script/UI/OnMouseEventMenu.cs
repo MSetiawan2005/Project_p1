@@ -10,6 +10,7 @@ public class OnMouseEventMenu : MonoBehaviour
     public GameObject pausePane { get; private set; }
     public GameObject settingPane { get; private set; }
 
+
     private void Start()
     {
         pausePane = GameObject.Find("PausePane");
@@ -45,11 +46,11 @@ public class OnMouseEventMenu : MonoBehaviour
             Debug.Log("Please add Button Component to UI Object named with BackSettingPane ");
         }
 
-        Button restart = GameObject.Find("Restart").GetComponent<Button>();
-        if (restart == null)
-        {
-            Debug.Log("Please add Button Component to UI Object named with Back ");
-        }
+//        Button restart = GameObject.Find("Restart").GetComponent<Button>();
+//        if (restart == null)
+//        {
+//            Debug.Log("Please add Button Component to UI Object named with Back ");
+//        }
 
 
         resume.GetComponent<Button>().onClick.AddListener(ResumeOnClick);
@@ -57,7 +58,7 @@ public class OnMouseEventMenu : MonoBehaviour
         setting.GetComponent<Button>().onClick.AddListener(SettingOnClick);
         mainMenu.GetComponent<Button>().onClick.AddListener(MainMenuOnClick);
         backSetting.GetComponent<Button>().onClick.AddListener(BackOnClick);
-        restart.GetComponent<Button>().onClick.AddListener(RestartOnClick);
+ //       restart.GetComponent<Button>().onClick.AddListener(RestartOnClick);
 
         pausePane.SetActive(false);
         settingPane.SetActive(false);
@@ -84,6 +85,12 @@ public class OnMouseEventMenu : MonoBehaviour
     public void RestartOnClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void RestartInTime(float time)
+    {
+        Invoke("RestartOnClick", time);
+
     }
 
     public void SettingOnClick()

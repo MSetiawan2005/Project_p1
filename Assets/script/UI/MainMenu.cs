@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,10 +11,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject controlPane;
     [SerializeField] private GameObject optionPane;
     [SerializeField] private GameObject creditPane;
+    [SerializeField] private Image levelBackground;
     [SerializeField] private CharachterProperties properties;
     [SerializeField] private int buttonToChange;
-
-
+    [SerializeField] private Toggle audioMaster;
+    [SerializeField] private Toggle sfx;
+    [SerializeField] private Toggle bgm;
+    [SerializeField] private Toggle fullscreen;
+    [SerializeField] private SoundController audioController;
+    [SerializeField] GameObject[] inactive;
 
 
     // Deprecated
@@ -20,19 +27,41 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+       
+        levelBackground = GameObject.Find("LevelBackground").GetComponent<Image>();
         mainMenuPane = GameObject.Find("MainMenu");
         levelSelectPane = GameObject.Find("LevelSelect");
         controlPane = GameObject.Find("Control");
         optionPane = GameObject.Find("Option");
         creditPane = GameObject.Find("Credit");
+        properties = Resources.Load<CharachterProperties>("CharachterData");
+        audioController = GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>();
 
- //       mainMenuPane.SetActive(false);
+
+        for (int i = 0; i < inactive.Length; i++)
+        {
+            if(i < properties.level)
+            {
+                inactive[i].SetActive(false);
+            }
+            else
+            {
+                inactive[i].SetActive(true);
+            }
+        }
+
         levelSelectPane.SetActive(false);
         controlPane.SetActive(false);
         optionPane.SetActive(false);
         creditPane.SetActive(false);
+        levelBackground.gameObject.SetActive(false);
 
-        Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length-1].width, Screen.resolutions[Screen.resolutions.Length - 1].height, true);
+        audioMaster.isOn = properties.audioMaster;
+        bgm.isOn = properties.bgm;
+        sfx.isOn = properties.sfx;
+        fullscreen.isOn = properties.isFullscreen;
+
+        Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length-1].width, Screen.resolutions[Screen.resolutions.Length - 1].height, properties.isFullscreen);
 
     }
 
@@ -42,6 +71,8 @@ public class MainMenu : MonoBehaviour
         // pop up
         this.buttonToChange = buttonToChange;
     }
+
+    
 
     public void ChangeOnWalkLeftButton(int newButton)
     {
@@ -72,8 +103,8 @@ public class MainMenu : MonoBehaviour
         controlPane.SetActive(false);
         creditPane.SetActive(false);
         optionPane.SetActive(true);
-        
 
+        audioController.PlaySFX(SFX.Button_Click);
     }
 
     public void BackOnClick()
@@ -83,6 +114,8 @@ public class MainMenu : MonoBehaviour
         controlPane.SetActive(false);
         optionPane.SetActive(false);
         creditPane.SetActive(false);
+        levelBackground.gameObject.SetActive(false);
+        audioController.PlaySFX(SFX.Button_Click);
 
     }
 
@@ -92,6 +125,8 @@ public class MainMenu : MonoBehaviour
         controlPane.SetActive(false);
         optionPane.SetActive(false);
         creditPane.SetActive(false);
+        levelBackground.gameObject.SetActive(true);
+        audioController.PlaySFX(SFX.Button_Click);
 
         levelSelectPane.SetActive(true);
     }
@@ -103,6 +138,7 @@ public class MainMenu : MonoBehaviour
         levelSelectPane.SetActive(false);
         controlPane.SetActive(true);
         creditPane.SetActive(false);
+        audioController.PlaySFX(SFX.Button_Click);
 
     }
 
@@ -113,6 +149,8 @@ public class MainMenu : MonoBehaviour
         levelSelectPane.SetActive(false);
         controlPane.SetActive(false);
         creditPane.SetActive(true);
+        audioController.PlaySFX(SFX.Button_Click);
+
     }
     public void ExitOnClick()
     {
@@ -120,7 +158,37 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnAudioMaster()
+    {
+        properties.audioMaster = audioMaster.isOn;
+        sfx.interactable = audioMaster.isOn;
+        bgm.interactable = audioMaster.isOn;
+        if (!audioMaster.isOn) audioController.MasterMuteOption(!audioMaster.isOn);
+        else
+        {
+            audioController.SFXMuteOption(!sfx.isOn);
+            audioController.BGMMuteOption(!bgm.isOn);
+
+        }
+    }
+
+    public void OnSFX()
+    {
+        properties.sfx = sfx.isOn;
+        audioController.SFXMuteOption(!sfx.isOn);
+    }
+
+    public void OnBGM()
+    {
+        properties.bgm = bgm.isOn;
+        audioController.BGMMuteOption(!bgm.isOn);
+    }
+
+    public void OnFullscreen()
+    {
+        properties.isFullscreen = fullscreen.isOn;
+    }
 
 
-   // public delegate void DeselectedCallback();
+    // public delegate void DeselectedCallback();
 }

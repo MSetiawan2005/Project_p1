@@ -4,6 +4,13 @@ using System.Collections;
 public class DoorTrigger : MonoBehaviour {
 	public Door door;
 	public bool ignoreTrigger; //kalo ga mau pake trigger depan pintu
+	[SerializeField] private AudioSource GateOpenClose;
+
+    private void Start()
+    {
+		GateOpenClose = GameObject.Find(SFX.Door_OpenOne.ToString()).GetComponent<AudioSource>();
+
+	}
 
 	void OnTriggerEnter2D(Collider2D target){
 		if (ignoreTrigger) //skip function ini kalo mau pake switch SAJA
@@ -24,10 +31,23 @@ public class DoorTrigger : MonoBehaviour {
 	}
 
 	public void Toggle(bool value){ //fungsi ini buat dijalanin sama switch
+        
 		if (value)
-			door.Open ();
-		else
-			door.Close ();
+        {
+			if (!GateOpenClose.isPlaying)
+			{
+				GateOpenClose.Play();
+			}
+			door.Open();
+
+		}
+        else
+        {
+			GateOpenClose.Play();
+			door.Close();
+
+		}
+
 	}
 
 	void OnDrawGizmos(){ //penanda kalo doornya pake trigger atau pake switch

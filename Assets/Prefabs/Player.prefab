@@ -517,6 +517,7 @@ MonoBehaviour:
   boxHolder: {fileID: 7560420358170674126}
   raydist: 0.2
   ktk: {fileID: 0}
+  boxMoving: {fileID: 0}
 --- !u!70 &7560420357997897788
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -550,6 +551,8 @@ MonoBehaviour:
   jumpGround:
     serializedVersion: 2
     m_Bits: 64
+  audioController: {fileID: 0}
+  run: {fileID: 0}
   keyFollowPoint: {fileID: 7560420357892745698}
   followKey: {fileID: 0}
 --- !u!114 &7560420357997897794

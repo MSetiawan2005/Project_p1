@@ -1,33 +1,44 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Switch : MonoBehaviour {
 	public DoorTrigger[] doorTriggers;
 	public bool sticky; //var penentu switch hanya sekali tekan, tidak kembali naik lagi
 	private bool down;
 	private Animator animator;
+	[SerializeField] private List<GameObject> activator;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
+
 	}
 
-    void OnTriggerStay2D(Collider2D target)
+	void OnTriggerStay2D(Collider2D target)
     {
 		animator.SetInteger("AnimState", 1); //animasi switch ketekan
-		down = true; //set boolean true
 
+        if (!activator.Contains(target.gameObject))
+        {
+			activator.Add(target.gameObject);
+        }
+	
 
 		foreach (DoorTrigger trigger in doorTriggers)
 		{ //cari semua doortrigger yg didaftarin pada array
-			if (trigger != null) //kalo array tidak kosong
+			if (trigger != null && !down) //kalo array tidak kosong
+            {
 				trigger.Toggle(true); //jalankan fungsi toggle pada doortrigger
+				down = true; //set boolean true
+
+			}
 		}
 	}
 
     void OnTriggerExit2D(Collider2D target){
 
-
-			if (sticky && down) //kalau switch sudah ditekan DAN dia sticky
+		activator.Remove(target.gameObject);
+			if (activator.Count > 0) //kalau switch sudah ditekan DAN dia sticky
 				return; //fungsi tidak dijalankan, alias switch tidak beranimasi naik lagi
 
 
@@ -40,8 +51,6 @@ public class Switch : MonoBehaviour {
 				if (trigger != null)
 					trigger.Toggle(false);
 			}
-		
-		
 	}
 
 

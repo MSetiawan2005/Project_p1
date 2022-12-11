@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sentence1 2
   m_EditorClassIdentifier: 
   characterName: Frank Wandals
-  sentence: Pecahhkan puzzle kemudian ambil kunci untuk membuka pintu ke level selanjutnya
-  isDoingAction: 1
+  sentence: I could move with A or D
+  isDoingAction: 0
   action: 3
   images: []

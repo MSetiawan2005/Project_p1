@@ -10,18 +10,11 @@ public class PlayerDie : MonoBehaviour
     public GameObject effect;
     public GameObject blood;
    
-
-
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
             die();
-
-           
-
-
         }
     }
 
@@ -29,19 +22,9 @@ public class PlayerDie : MonoBehaviour
     {
         Instantiate(blood, transform.position, Quaternion.identity);
         Instantiate(effect, transform.position, Quaternion.identity);
+        GameObject.Find(SFX.Player_Death.ToString()).GetComponent<AudioSource>().Play();
+        GameObject.Find("Canvas").GetComponent<OnMouseEventMenu>().RestartInTime(1.5f);
         Destroy(gameObject);
-
-     
-
-    }
-
-    public void Restart()
-    {
-
-       
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-
     }
 
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sentence3
   m_EditorClassIdentifier: 
   characterName: Frank Wandals
-  sentence: Tekan Space untuk melompat
+  sentence: And jump with Space
   isDoingAction: 1
-  action: 5
+  action: 3
   images: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sentence1 1
   m_EditorClassIdentifier: 
   characterName: Frank Wandals
-  sentence: Tekan A atau D untuk bergerak ke kiri atau kanan
+  sentence: I should get that key and unlock the door
   isDoingAction: 0
   action: 2
   images: []

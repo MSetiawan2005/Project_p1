@@ -12,10 +12,13 @@ public class Pintu : MonoBehaviour
 
     public bool doorOpen, waiting, openingDoor;
 
+    [SerializeField] private AudioSource doorUnlocked;
+
     // Start is called before the first frame update
     void Start()
     {
         thePlayer = FindObjectOfType<PlayerMove>();
+        doorUnlocked = GameObject.Find(SFX.Door_OpenTwo.ToString()).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class Pintu : MonoBehaviour
                 sr.sprite = doorOpenSprt;
                 thePlayer.followKey.gameObject.SetActive(false);
                 thePlayer.followKey = null;
-                
+                doorUnlocked.Play();
             }
         }
 

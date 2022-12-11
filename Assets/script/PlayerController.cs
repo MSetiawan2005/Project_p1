@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-          
-
             theRB.velocity = new Vector2(theRB.velocity.x, jumpPower);
         }
 

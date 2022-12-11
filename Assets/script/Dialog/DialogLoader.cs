@@ -12,6 +12,7 @@ public class DialogLoader : MonoBehaviour
     [SerializeField] int index;
     [SerializeField] DialogProperties dialog;
     [SerializeField] bool isTalking;
+    private bool enumStart;
 
 
     private void Start()
@@ -43,16 +44,30 @@ public class DialogLoader : MonoBehaviour
 
     public void Talk()
     {
-
+        StopAllCoroutines();
         if (index >= dialog.sentences.Length)
         {
             EndTalk();
             return;
         }
+
         characterName.text = dialog.sentences[index].characterName;
-        sentence.text = dialog.sentences[index].sentence;
+        sentence.text = "";
+        StartCoroutine(TalkEnum(dialog.sentences[index].sentence));
         dialog.DoSentenceAction(index);
         index++;
+    }
+
+    IEnumerator TalkEnum(string text)
+    {
+        int i = 0;
+        while(i < text.Length)
+        {
+            sentence.text += text[i];
+            i++;
+            yield return new WaitForSeconds(0.05f);
+        }
+
     }
 
     void EndTalk()

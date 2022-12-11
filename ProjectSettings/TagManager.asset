@@ -10,6 +10,8 @@ TagManager:
   - target
   - Dialog
   - Trap
+  - Inactive
+  - SoundController
   layers:
   - Default
   - TransparentFX

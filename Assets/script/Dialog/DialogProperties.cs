@@ -17,14 +17,6 @@ public class DialogProperties : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (this.name == "TutorialTwo" && c.hasPassedTutorialTwo)
-        {
-            Destroy(this.gameObject);
-        }
-        if (this.name == "TutorialThree" && c.hasPassedTutorialThree)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     public bool DoSentenceAction(int i)

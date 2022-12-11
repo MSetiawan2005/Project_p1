@@ -167,3 +167,7 @@ MonoBehaviour:
   loadingscreens: []
   image: {fileID: 0}
   imageFilled: {fileID: 2481854566264604195}
+  speed: 250
+  color:
+    serializedVersion: 2
+    rgba: 4283859136

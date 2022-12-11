@@ -8,6 +8,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float moveSpeed = 7;
     [SerializeField] private float jumpf = 14;
     [SerializeField] private LayerMask jumpGround;
+    [SerializeField] private SoundController audioController;
+    [SerializeField] AudioSource run;
 
     private CircleCollider2D colld;
     private Rigidbody2D rb;
@@ -25,6 +27,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         colld = GetComponent<CircleCollider2D>();
+        run = GameObject.Find(SFX.Player_Run.ToString()).GetComponent<AudioSource>();
         
     }
 
@@ -35,6 +38,16 @@ public class PlayerMove : MonoBehaviour
         {
             GameObject.Find("Canvas").GetComponent<OnMouseEventMenu>().Pause();
             Time.timeScale = (Time.timeScale + 1) % 2;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameObject.Find("Canvas").GetComponent<OnMouseEventMenu>().RestartOnClick();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SceneChanger>().RestartData();
         }
 
         dirX = Input.GetAxisRaw("Horizontal");
@@ -105,5 +118,13 @@ public class PlayerMove : MonoBehaviour
     {
         return Physics2D.BoxCast(colld.bounds.center, colld.bounds.size, 0f, Vector2.down, .1f, jumpGround);
     }
+
+    public void Run()
+    {
+        run.pitch = Random.Range(1, 1.5f);
+        run.Play();
+    }
+
+    
 
 }

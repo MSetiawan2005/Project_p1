@@ -9,8 +9,13 @@ public class Grab : MonoBehaviour
     public Transform boxHolder;
     public float raydist;
     public GameObject ktk;
-    
-    
+
+    [SerializeField] private AudioSource boxMoving;
+
+    private void Start()
+    {
+        boxMoving = GameObject.Find(SFX.Player_PushBox.ToString()).GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,6 +31,10 @@ public class Grab : MonoBehaviour
                 grabcheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 ktk.GetComponent<ScreenWrap1>().enabled = false;
 
+                if (!boxMoving.isPlaying)
+                {
+                    boxMoving.Play();
+                }
 
             }
             else
@@ -33,6 +42,10 @@ public class Grab : MonoBehaviour
                 ktk.GetComponent<ScreenWrap1>().enabled = true;
                 grabcheck.collider.gameObject.transform.parent = null;
                 grabcheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                if (boxMoving.isPlaying)
+                {
+                    boxMoving.Stop();
+                }
             }
         }
     }
