@@ -20,7 +20,7 @@ public class Keys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFollow)
+        if (isFollow && followTrg != null)
         {
             transform.position = Vector3.Lerp(transform.position, followTrg.position, followsped * Time.deltaTime);
         } 
@@ -43,6 +43,7 @@ public class Keys : MonoBehaviour
 
                
             }
+     
         }
     }
 }

@@ -19,5 +19,6 @@ public class CharachterProperties : ScriptableObject
     public bool hasPassedTutorialTwo;
     public bool hasPassedTutorialThree;
     public bool hasShowTimeLine;
+    public bool hasShowSplashScreen;
 
 }

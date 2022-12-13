@@ -16,6 +16,10 @@ public class Switch : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D target)
     {
+		if (sticky && down)
+		{
+			return;
+		}
 		animator.SetInteger("AnimState", 1); //animasi switch ketekan
 
         if (!activator.Contains(target.gameObject))
@@ -37,6 +41,10 @@ public class Switch : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D target){
 
+        if (sticky)
+        {
+			return;
+        }
 		activator.Remove(target.gameObject);
 			if (activator.Count > 0) //kalau switch sudah ditekan DAN dia sticky
 				return; //fungsi tidak dijalankan, alias switch tidak beranimasi naik lagi

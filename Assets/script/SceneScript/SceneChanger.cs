@@ -96,7 +96,7 @@ public class SceneChanger : MonoBehaviour
 
     public void NextLevel(int sceneIndex)
     {
-        if (sceneIndex+1 > 3)
+        if (sceneIndex+1 > 6)
         {
             BackToMainMenu();
             return;

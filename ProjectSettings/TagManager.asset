@@ -12,6 +12,7 @@ TagManager:
   - Trap
   - Inactive
   - SoundController
+  - ply
   layers:
   - Default
   - TransparentFX

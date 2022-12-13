@@ -9,7 +9,6 @@ public class Initializer : MonoBehaviour
     [SerializeField] private Toggle audioMaster;
     [SerializeField] private Toggle sfx;
     [SerializeField] private Toggle bgm;
-    [SerializeField] private Toggle fullscreen;
     [SerializeField] private CharachterProperties properties;
     [SerializeField] private SoundController audioController;
 
@@ -27,7 +26,7 @@ public class Initializer : MonoBehaviour
         audioMaster.isOn = properties.audioMaster;
         bgm.isOn = properties.bgm;
         sfx.isOn = properties.sfx;
-        fullscreen.isOn = properties.isFullscreen;
+/*        fullscreen.isOn = properties.isFullscreen;*/
 
 
         if (GetComponent<SceneChanger>() == null)
@@ -73,7 +72,7 @@ public class Initializer : MonoBehaviour
 
     public void OnFullscreen()
     {
-        properties.isFullscreen = fullscreen.isOn;
+/*        properties.isFullscreen = fullscreen.isOn;*/
     }
 
 
