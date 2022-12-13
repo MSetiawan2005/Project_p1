@@ -39,7 +39,7 @@ public class SoundController : MonoBehaviour
             BGMs[i].clip = Resources.LoadAll("BGM")[i] as AudioClip;
             BGMs[i].loop = true;
             BGMs[i].playOnAwake = false;
-            if(i != 0)
+            if(i != 0 && i != BGMs.Length-1)
             {
                 BGMs[i].volume = 0.4f;
             }
@@ -75,6 +75,7 @@ public class SoundController : MonoBehaviour
             else {
                 if (!BGMs[j].isPlaying)
                     BGMs[j].Play();
+                
             }
         }
     }

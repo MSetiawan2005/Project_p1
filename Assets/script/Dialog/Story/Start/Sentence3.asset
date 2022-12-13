@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ea95fc9c9dc1c4fab62714400d8bc4, type: 3}
   m_Name: Sentence3
   m_EditorClassIdentifier: 
-  characterName: Frank Wandals
+  characterName: Frank Wendell
   sentence: Wait for me ariel, i will save you
-  isDoingAction: 0
-  action: 0
+  isDoingAction: 1
+  action: 3
   images: []

@@ -19,7 +19,7 @@ public class Initializer : MonoBehaviour
         GameObject loading = GameObject.Instantiate(LoadingPrefab, canvas.transform);
         loading.name = "Loading";
         loading.SetActive(true);
-        audioController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SoundController>();
+        audioController = GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         properties = Resources.Load<CharachterProperties>("CharachterData");

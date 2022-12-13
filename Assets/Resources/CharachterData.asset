@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52a66ec4a1003247ad9e8e2fa316fb0, type: 3}
   m_Name: CharachterData
   m_EditorClassIdentifier: 
-  level: 3
+  level: 1
   walkLeft: 0
   walkRight: 0
   interact: 0

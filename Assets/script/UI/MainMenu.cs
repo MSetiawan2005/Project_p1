@@ -125,10 +125,10 @@ public class MainMenu : MonoBehaviour
         controlPane.SetActive(false);
         optionPane.SetActive(false);
         creditPane.SetActive(false);
-        levelBackground.gameObject.SetActive(true);
+/*        levelBackground.gameObject.SetActive(true);*/
         audioController.PlaySFX(SFX.Button_Click);
-
-        levelSelectPane.SetActive(true);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SceneChanger>().ChangeScene(9);
+/*        levelSelectPane.SetActive(true);*/
     }
 
     public void ControlOnClick()

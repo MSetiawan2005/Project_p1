@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ea95fc9c9dc1c4fab62714400d8bc4, type: 3}
   m_Name: Sentence0
   m_EditorClassIdentifier: 
-  characterName: Frank Wandals
+  characterName: Frank Wendell
   sentence: ...............
   isDoingAction: 0
   action: 0

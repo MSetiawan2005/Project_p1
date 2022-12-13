@@ -13,12 +13,23 @@ public class SceneChanger : MonoBehaviour
 
     private void Start()
     {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         speed = 250;
         loadingScreen = GameObject.Find("Loading").GetComponent<LoadingScreen>();
         charachterProperties = Resources.Load<CharachterProperties>("CharachterData");
         loadingScreen.gameObject.SetActive(false);
-        GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>().PlayBGM(SceneManager.GetActiveScene().buildIndex);
-        if(SceneManager.GetActiveScene().buildIndex != 0)
+        if(sceneIndex == 0)
+            GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>().PlayBGM(0);
+
+        else if (sceneIndex == 9)
+            GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>().PlayBGM(3);
+
+        else
+            GameObject.FindGameObjectWithTag("SoundController").GetComponent<SoundController>().PlayBGM((sceneIndex % 2)+1);
+
+
+
+        if (sceneIndex != 0)
         {
             loadingScreen.gameObject.SetActive(true);
             StartCoroutine( loadingScreen.FadeIn());
@@ -27,7 +38,7 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
-        if(sceneIndex <= charachterProperties.level )
+        if(sceneIndex <= charachterProperties.level || sceneIndex == 9)
         {
             
             loadingScreen.gameObject.SetActive(true);
@@ -110,7 +121,7 @@ public class SceneChanger : MonoBehaviour
 
         AsyncOperation loadedScene = SceneManager.LoadSceneAsync(sceneIndex);
         Debug.Log("Masuk");
-        if(charachterProperties.level < sceneIndex)
+        if(charachterProperties.level < sceneIndex && sceneIndex != 9)
         {
             charachterProperties.level = sceneIndex;
             SaveSystemLoader.SaveData(charachterProperties);
